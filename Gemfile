@@ -29,28 +29,34 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'pry'
   gem 'pry-byebug', '~> 3.0'
-  gem 'awesome_print'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'listen', '~> 3.3'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
+  # Style Monitoring
+  gem 'rubocop'
+  # Performance Monitoring
+  gem 'rubocop-performance'
+  # Rails Style Monitoring
+  gem 'rubocop-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 6.0.0'
-  gem 'factory_bot_rails'
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
 end
 
@@ -66,7 +72,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # for slim template
-gem "slim-rails"
-#Background processing
+gem 'slim-rails'
+
+# Background processing
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
