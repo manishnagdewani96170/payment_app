@@ -60,3 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # for slim template
 gem "slim-rails"
+#Background processing
+gem 'sidekiq'
+gem 'sidekiq-cron'
