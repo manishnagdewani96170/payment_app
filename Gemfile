@@ -69,4 +69,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "slim-rails"
 #Background processing
 gem 'sidekiq'
-gem 'sidekiq-cron'
+gem 'sidekiq-scheduler'
