@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'faker'
   gem 'pry'
   gem 'pry-byebug', '~> 3.0'
 end
