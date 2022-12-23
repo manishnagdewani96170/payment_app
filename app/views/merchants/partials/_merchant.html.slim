@@ -1,0 +1,13 @@
+tr[scope="row"]
+  td[style="width: 25%"]
+    = merchant.name
+  td[style="width: 25%"]
+    = merchant.email  
+  td[style="width: 25%"]
+    = merchant.total_transaction_sum  
+  td[style="width: 25%"]
+    = merchant.description
+  td[style="width: 50%"]
+    = link_to "Show", merchant, class: "btn btn-secondary"
+    = button_to "Delete", merchant, method: :delete, remote: :true, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+    = link_to "Edit", edit_merchant_path(merchant), class: "btn btn-success"

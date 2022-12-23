@@ -1,0 +1,17 @@
+h1
+  | Merchants
+#merchants
+  table.table
+    thead
+      tr
+        th[scope="col"]
+          | Name
+        th[scope="col"]
+          | Email  
+        th[scope="col"]
+          | Total Transaction Sum
+        th[scope="col"]
+          | Description
+    tbody
+      - @merchants.each do |merchant|
+        == render 'merchants/partials/merchant', merchant: merchant  
