@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_40_094620) do
+ActiveRecord::Schema.define(version: 2022_12_40_152889) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2022_12_40_094620) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_merchants_on_email"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "uuid"
+    t.string "customer_email", default: ""
+    t.string "type"
+    t.string "status"
+    t.decimal "amount", precision: 13, scale: 4
+    t.string "customer_phone"
+    t.bigint "merchant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
   end
 
 end

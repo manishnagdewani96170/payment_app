@@ -39,6 +39,8 @@ RSpec.describe Merchant, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it { should have_many(:transactions) }
+
   
   describe 'scopes' do
     context 'active' do
