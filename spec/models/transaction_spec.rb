@@ -115,4 +115,45 @@ RSpec.describe Transaction, type: :model do
       end  
     end
   end
+
+  describe 'instance_methods' do
+    context '.approved?' do
+      let!(:transaction_1) { create(:transaction, status: 'approved') }
+      let!(:transaction_2) { create(:transaction, status: 'refunded') }
+      
+      it "should return approved status true" do
+        expect(transaction_1.approved?).to eq(true)
+      end
+
+      it "should return approved status false" do
+        expect(transaction_2.approved?).to eq(false)
+      end 
+    end
+
+    context '.refunded?' do
+      let!(:transaction_1) { create(:transaction, status: 'refunded') }
+      let!(:transaction_2) { create(:transaction, status: 'approved') }
+      
+      it "should return refunded status true" do
+        expect(transaction_1.refunded?).to eq(true)
+      end
+
+      it "should return refunded status false" do
+        expect(transaction_2.refunded?).to eq(false)
+      end 
+    end
+
+    context '.reversed?' do
+      let!(:transaction_1) { create(:transaction, status: 'reversed') }
+      let!(:transaction_2) { create(:transaction, status: 'refunded') }
+      
+      it "should return reversed status true" do
+        expect(transaction_1.reversed?).to eq(true)
+      end
+
+      it "should return reversed status false" do
+        expect(transaction_2.reversed?).to eq(false)
+      end 
+    end
+  end
 end

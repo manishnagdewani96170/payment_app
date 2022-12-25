@@ -24,4 +24,17 @@ class Transaction < ApplicationRecord
     older_than(duration).destroy_all
   end
 
+  # Instance Methods
+  def approved?
+    status == 'approved'
+  end
+
+  def refunded?
+    status == 'refunded'
+  end
+
+  def reversed?
+    status == 'reversed'
+  end
+
 end

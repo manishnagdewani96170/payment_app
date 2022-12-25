@@ -60,5 +60,20 @@ RSpec.describe Merchant, type: :model do
       merchant.run_callbacks(:destroy)
     end
   end
+
+  describe 'instance_methods' do
+    context '.active?' do
+      let!(:merchant_1) { create(:merchant, status: 'active') }
+      let!(:merchant_2) { create(:merchant, status: 'inactive') }
+      
+      it "should return active status true" do
+        expect(merchant_1.active?).to eq(true)
+      end
+
+      it "should return active status false" do
+        expect(merchant_2.active?).to eq(false)
+      end 
+    end
+  end
 end
 

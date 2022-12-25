@@ -18,6 +18,12 @@ class Merchant < ApplicationRecord
   # Callbacks
   before_destroy :check_payment_transactions_exist?, prepend: true
 
+  # Instance methods
+
+  def active?
+    status == 'active'
+  end
+
   private
 
   def check_payment_transactions_exist?
