@@ -40,7 +40,6 @@ RSpec.describe Merchant, type: :model do
   end
 
   it { should have_many(:transactions) }
-
   
   describe 'scopes' do
     context 'active' do
@@ -52,4 +51,14 @@ RSpec.describe Merchant, type: :model do
       end  
     end
   end
+
+  describe "#destroy" do
+    let(:merchant) { create(:merchant) }
+    
+    it "runs .check_payment_transactions_exist before destroy" do
+      expect(merchant).to receive(:check_payment_transactions_exist?)
+      merchant.run_callbacks(:destroy)
+    end
+  end
 end
+

@@ -17,4 +17,14 @@ describe Merchants::Delete, type: :service do
       subject.execute(merchant: merchant)
     }.to change {Merchant.count}.by(-1)
   end
+
+  context 'raise error for merchant to delete if transactions exist' do
+    let!(:transaction) { create(:transaction, merchant: merchant) }
+
+    it 'should raise error' do
+      expect{
+        subject.execute(merchant: merchant)
+      }.to raise_error("Can't be destroy due to active payment transactions exist")
+    end
+  end
 end

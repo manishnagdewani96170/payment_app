@@ -14,5 +14,14 @@ class Merchant < ApplicationRecord
 
   # Scope
   scope :active, -> { where(status: 'active') }
+
+  # Callbacks
+  before_destroy :check_payment_transactions_exist?, prepend: true
+
+  private
+
+  def check_payment_transactions_exist?
+    raise "Can't be destroy due to active payment transactions exist" if self.transactions.exists?
+  end
 end
 
