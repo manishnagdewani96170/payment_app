@@ -1,0 +1,4 @@
+:schedule:
+  delete_old_transactions:
+    cron: '0 * * * *'   # Runs once past every hour
+    class: DeleteOldTransactions

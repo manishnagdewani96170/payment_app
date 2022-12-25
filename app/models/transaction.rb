@@ -17,5 +17,11 @@ class Transaction < ApplicationRecord
   scope :reversed, -> { where(status: 'reversed') }
   scope :refunded, -> { where(status: 'refunded') }
   scope :error, -> { where(status: 'error') }
+  scope :older_than, -> (duration) { where("created_at < ?", Time.now - duration) }
+
+  # Class Methods
+  def self.delete_past_records(duration)
+    older_than(duration).destroy_all
+  end
 
 end

@@ -76,5 +76,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim-rails'
 
 # Background processing
-gem 'sidekiq'
-gem 'sidekiq-scheduler'
+gem 'sidekiq', '~> 6.5.5'
+gem 'sidekiq-scheduler', '4.0.3'

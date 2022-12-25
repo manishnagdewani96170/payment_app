@@ -91,5 +91,28 @@ RSpec.describe Transaction, type: :model do
         expect(Transaction.error.count).to eq(1)
       end  
     end
+
+    context 'older_than' do
+      let!(:transaction_1) { create(:transaction, created_at: Time.now - 3600) }
+      let!(:transaction_2) { create(:transaction, created_at: Time.now - 3800) }
+      let!(:transaction_3) { create(:transaction) }
+      
+      it "should return older than 1 hr transactions count" do
+        expect(Transaction.older_than(3600).count).to eq(2)
+      end  
+    end
+  end
+
+
+  describe 'class_methods' do
+    context '.delete_past_records' do
+      let!(:transaction_1) { create(:transaction, created_at: Time.now - 3600) }
+      let!(:transaction_2) { create(:transaction, created_at: Time.now - 3800) }
+      let!(:transaction_3) { create(:transaction) }
+      
+      it "should delete transactions older than given duration" do
+        expect{ Transaction.delete_past_records(3600) }.to change { Transaction.count }.by(-2)
+      end  
+    end
   end
 end
