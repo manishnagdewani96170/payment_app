@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :merchants, only: [:index, :show, :edit, :update, :destroy]
 
+  resources :transactions, only: [:index]
+
   mount API::Base, at: '/api'
 end

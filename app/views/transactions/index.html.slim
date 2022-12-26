@@ -1,0 +1,19 @@
+h1
+  | Transactions
+#transactions
+  table.table
+    thead
+      tr
+        th[scope="col"]
+          | Customer Email
+        th[scope="col"]
+          | Customer Phone
+        th[scope="col"]
+          | Merchant
+        th[scope="col"]
+          | Amount
+        th[scope="col"]
+          | Status
+    tbody
+      - @transactions.each do |transaction|
+        == render 'transactions/partials/transaction', transaction: transaction  
