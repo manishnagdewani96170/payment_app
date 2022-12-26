@@ -49,6 +49,7 @@ RSpec.describe Transaction, type: :model do
 
   it "is valid with no amount" do
     subject.amount = nil
+    subject.type = 'ReversalTransaction'
     expect(subject).to be_valid
   end
 
