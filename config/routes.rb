@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'merchants#index'
 
   resources :merchants, only: [:index, :show, :edit, :update, :destroy]
+
+  mount API::Base, at: '/api'
 end

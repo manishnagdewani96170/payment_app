@@ -57,6 +57,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'rack-test'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'shoulda-matchers', '~> 5.0'
 end
@@ -78,3 +79,10 @@ gem 'slim-rails'
 # Background processing
 gem 'sidekiq', '~> 6.5.5'
 gem 'sidekiq-scheduler', '4.0.3'
+
+# Grape added for lightweight API framework
+gem 'grape'
+gem 'grape-entity'
+
+# Manage env variables
+gem 'dotenv-rails'
